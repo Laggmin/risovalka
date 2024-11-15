@@ -3,15 +3,12 @@ package org.example.model.factory;
 import java.awt.geom.*;
 
 public enum ShapeType {
-    RECTANGULAR{
+    RECTANGULAR {
         @Override
         public RectangularShape createShape() {
-            return new RectangularShape() {
-                @Override
-                public double getX() {
-                    Rectangula2D.Double();
-                }
-            },
+            return new Rectangle2D.Double();
+        }
+    },
 
     ELLIPSE {
         @Override

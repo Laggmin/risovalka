@@ -10,9 +10,16 @@ import java.awt.geom.RectangularShape;
 public class ShapeCreatorFactory {
 
 
-    private ShapeCreatorFactory(){
-
+    private static ShapeCreatorFactory instance;
+    @Setter
+    private MenuState state;
+    public static synchronized ShapeCreatorFactory getInstance(){
+        if (instance == null){
+            instance = new ShapeCreatorFactory();
+        }
+        return instance;
     }
+    private ShapeCreatorFactory(){}
     public void config(MenuState state){
         this.state = state;
     }
@@ -20,7 +27,6 @@ public class ShapeCreatorFactory {
         MyShape newShape = new MyShape();
         RectangularShape shape = state.getShapeType().createShape();
         FillBehavior fillBehavior = state.isFill() ? new Fill() : new NoFill();
-        fillBehavior.setShape(shape);
         fillBehavior.setColor(state.getColor());
 
         newShape.setFb(fillBehavior);

@@ -1,6 +1,7 @@
 package org.example.controller;
 
 import org.example.model.MyShape;
+import org.example.model.factory.MenuState;
 import org.example.model.factory.ShapeType;
 
 import javax.swing.*;
@@ -31,6 +32,7 @@ public class MenuController {
 //    public enum ShapeType{
 //        RECTANGULAR, ELLIPSE
 //    }
+    private MenuState state;
 
 
     private JMenu createShapeMenu() {
@@ -39,7 +41,7 @@ public class MenuController {
         ButtonGroup group = new ButtonGroup();
         //поменять на фабрику
         JRadioButtonMenuItem square = new JRadioButtonMenuItem("Прямоугольник");
-        square.addActionListener(e -> state.setShapeType(ShapeType.ELLIPSE));
+        square.addActionListener(e -> state.setShapeType(ShapeType.RECTANGULAR));
         shapeMenu.add(square);
         group.add(square);
         JRadioButtonMenuItem ellipse = new JRadioButtonMenuItem("Эллипс");
